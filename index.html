@@ -1,48 +1,161 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>fiiyou </title>
-        <link rel="icon" href="favicon.ico">
-        <style>
-            @font-face{
-                font-family: 'ubuntu-regular';
-                src: url('Ubuntu-regular.ttf');
-            }
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>fiiyou: coming soon</title>
+<meta name="description" content="fiiyou is coming soon. The internet belongs to you.">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAExUlEQVR4nNWaTUhjVxTHf3k8pThVaRWdIBodnEEXFcaiqCkVKy5curTQ2Yl2ZBCsCkLpskVpV7rpSoN0XWZRLYqDFGQEiwYRmUj9GFSsIfFjZgz1I+92cV/SfE7ei9E0fziLd9+55/7PuR/v3nOfhZvBAtwDcoFKoAV4DDwErHo5wFvgCPgL+BP4A3Dp5eeAuAmBZKACnwBfAJ8DnwIlJm0cAsvAIvACcALXSfIxBSvwM7AD/IOM3k3kAnit27TdJvF84GvgNAWk48kZ0Ke3lVI0AjPIaN0W+YBc6W01p4r8E2AP8N8B+YD4gQOg6ybEVeApslvvinik+HQO2ck48BTwpJF8QDxAv1nyT0hv5CPlDSaGUyNyzKebdKyeaExEPh+5AtzlhDUqms6tKJSwGuHAl8ivq5LIU0VRaG1tpaWlhfLycrKzszk9PcXlcjEzM8P6+noiE2Zh0bl9BfwUS8GKgY+UxWIRdrtdrKysiHhwOBxB/eLiYlFfXy8qKipEVlZWlD1VVYXNZhP19fXCarUa6YkzYmxbVOSnPKGB2tpasbm5KTRNi+tAX1+fAERdXZ3Y2NgQmqaJk5MTMTAwEGWvt7dXeL1eoWmacLlcwm63G3HiFyJGz2Pk3iZh5dnZ2SB5TdPEwcGBmJycFCMjI8LhcIjt7W3R3NwsADE2Nhbm2NbWlsjLywvays3NjerJqakpIw4c6ZxRQ8aWNda4CkVNTQ1tbW3B552dHdrb29nc3AzTUxQ5hS4uLsLK/X4/fr8/7nOsOnHwkc7ZCfAh8BwD0e/v7w+LVnd393v1KysrxfT0tHC73WJtbU10dnZG6XR0dIjV1VXhdrvF3NycqK6uNroqPQc+Bhn5fSOVxsfHwxyw2WwJ6xQWFoqqqipRVlYmFEWJeq8oiigtLRVVVVWiqKjIzLK6DzxUkScpQ4eRnJycsGev15uwjsfjwePxxH2vaRp7e3tGmo9ECfBIRR4DDcFiCT/ADQ4Ocnl5GaW3sLDA4uIiBQUF9PT0BMuXlpaYn58P021oaKC1tTX47HA42N/fN0rpM4BfMdhtExMTYUPI7/fHlOHhYQGI6urqsPLR0dGY8ypUp6mpycww+k1FHsCTQmC1iURoT4XqRPZgoCyeHQN4oGJg+YyHyclJrq+jz+FOpzNZk2ZxX+W/1IdpDA0NcX5+HlUea17cEu5FbuZMwefz4fP5UkUmGVgUZHIpU/FOQe4rMhVuBZnuy1RsK8hcZabCqSATrZmKlwoyS3yYbiZJ4BB4FViFltNMJhksAx4FmZ9fBO7s65MCXCM5nyrITdEL4O+0UjKHEyRnLbCLcgK/p42OecyhHycDDlwD3yNTeP93vAW+Rb/NCd0LvQa+A34kOuEFyNPV7u5u8FnTtPe2dHV1FaZ/fHwcpXN2dhamk+BQfw38gMygxEQ+GZZajIVm5OVCuglHilfnZuhisgt5uZBu0gHxAc+MEA9FRl9wgLzW6UeuTOmMfD/wQTIOBNCFjIJ2h8Q15Jg3PWziIaOvWQMoAr7hdu/O3gDDelvJ/gaRECXI/PwRcgOYioi7dZsVZslk/M8eN+0mCzJXXwA8QuYqa4AHwH3krzgW4B0yyts60ZfAK+TicIqctEnhX6ON3QtSEXFMAAAAAElFTkSuQmCC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:wght@400..800&display=swap" rel="stylesheet">
+<style>
+  /* Tokens follow the app's Mono theme: black surfaces, thin grey borders, white accent. */
+ 
+  @font-face {
+  font-family: "u-regular";
+  src: url("./u-regular.ttf") format("truetype");
+}
 
-            @font-face{
-                font-family: 'ubuntu-bold';
-                src: url('Ubuntu-Bold.ttf');
-            }
-            body{
+  :root {
+    --bg: #ffffff;
+    --card: #f4f4f4;
+    --border: #d4d4d4;
+    --text: #0a0a0a;
+    --muted: #666666;
+    --accent: #0a0a0a;
+    --on-accent: #ffffff;
+    --font: "u-regular", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #000000;
+      --card: #111111;
+      --border: #2f2f2f;
+      --text: #f2f2f2;
+      --muted: #9a9a9a;
+      --accent: #ffffff;
+      --on-accent: #000000;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #000000;
+    --card: #111111;
+    --border: #2f2f2f;
+    --text: #f2f2f2;
+    --muted: #9a9a9a;
+    --accent: #ffffff;
+    --on-accent: #000000;
+    color-scheme: dark;
+  }
 
-                background-color: black;
-                display: flex;
-                flex-direction: column;
-                margin:0;
-                padding: 0;
-                min-height: 100vh;
-                align-items: center;
-                justify-content: center;
-            }
-            h1{
-                color: white;
-                font-family: 'ubuntu-bold';
-                font-weight: 700;
-                margin: 0;
-                font-size: 4.5em;
-                margin-bottom: 7px;
-            }
-            p{
-                color: grey;
-                margin: 0;
-                font-family: 'ubuntu-regular';
-            }
-        </style>
-    </head>
-    <body>
-        <h1>fiiyou</h1>
-        <p>the internet belongs to you</p>
-        
-    </body>
+  * { box-sizing: border-box; }
+  :root {
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { height: 100%; scroll-padding-top: env(safe-area-inset-top, 0px); -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font: 500 16px/1.5 var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent); color: var(--on-accent); }
 
+  main {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem clamp(1.25rem, 6vw, 4rem);
+  }
+
+  h1 {
+    margin: 0 0 0 -.05em; /* cancels the big f's built-in left gap so it lines up with the text below */
+    font-weight: 800;
+    font-size: clamp(4.5rem, 24vw, 15rem);
+    line-height: .9;
+    /* keeps the descender of the y from clipping on tight line-height */
+    padding-bottom: .06em;
+  }
+
+  .slogan {
+    margin: .5rem 0 0;
+    max-width: 24ch;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    text-wrap: balance;
+  }
+
+  .soon {
+    margin: 0;
+    margin-top: 20px;
+    font-size: clamp(1.35rem, 3.2vw, 2rem);
+    line-height: 1.3;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  .cta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-top: clamp(1.5rem, 3.5vw, 2.25rem);
+  }
+
+  .donate {
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: .7rem 2rem;
+    margin-top: 0;
+    background-color: #ffffff;
+    color: var(--on-accent);
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 650;
+    text-decoration: none;
+    margin-top: 25px;
+    transition: filter .15s, transform .1s;
+  }
+  .donate:hover { filter: brightness(.88); }
+  .donate:active { transform: translateY(1px); }
+  .donate:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* one page-load reveal, in reading order */
+  .in { animation: in .7s cubic-bezier(.2, .7, .2, 1) backwards; }
+  .in:nth-child(2) { animation-delay: .14s; }
+  .in:nth-child(3) { animation-delay: .24s; }
+  .in:nth-child(4) { animation-delay: .34s; }
+  @keyframes in { from { opacity: 0; transform: translateY(10px); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+  <main>
+    <h1 class="in">fiiyou</h1>
+    <p class="slogan in">The internet belongs to you.</p>
+     <p class="soon">Coming soon.</p>
+
+      <a class="donate" href="https://ko-fi.com/fiiyou" target="_blank" rel="noopener noreferrer">Donate</a>
+  </main>
+</body>
 </html>
