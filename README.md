@@ -6,7 +6,7 @@ This is a separate project from the app. The app lives at https://app.fiiyou.onl
 
 ## Files
 - `index.html`: the page, including all SEO tags (title, description, canonical, Open Graph, Twitter card, JSON-LD)
-- `styles.css`, `main.js`: black and white with two charcoal bands, five type sizes (display, h2, lead, body, small), hairlines instead of cards. `main.js` handles the mobile menu, donation details and the contributors list.
+- `styles.css`, `main.js`: the app's black and white look: flat surfaces, 2px borders, a hard lift under buttons. Every colour is a variable at the top of `styles.css`. `main.js` handles the mobile menu, donation details and the contributors list.
 - `config.js`: **the file to edit for donations** (Ko-fi URL, IBAN, name on the account)
 - `404.html`, `robots.txt`, `sitemap.xml`, `vercel.json`
 - `assets/`: favicons and the share image (`og-image.png`, 1200x630)

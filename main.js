@@ -1,5 +1,5 @@
 // fiiyou landing page. No frameworks, no trackers, no build step.
-// Jobs: the mobile menu, donation details (with a copy button) and the contributors list from GitHub.
+// Jobs: the mobile menu, the sample profile, donation details (with a copy button) and the contributors list from GitHub.
 
 /* ---------- 1. mobile menu ---------- */
 (function menu() {
@@ -13,6 +13,20 @@
   nav.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
   window.matchMedia('(min-width: 880px)').addEventListener('change', () => set(false));
+})();
+
+/* ---------- 1b. the sample profile: colours and layout ---------- */
+(function playground() {
+  const card = document.getElementById('profile');
+  const form = document.querySelector('.tweak');
+  if (!card || !form) return;
+  form.addEventListener('submit', (e) => e.preventDefault());
+  form.addEventListener('change', (e) => {
+    const i = e.target;
+    if (!i || !i.checked) return;
+    if (i.name === 'theme') document.documentElement.dataset.theme = i.value;
+    if (i.name === 'layout') card.dataset.layout = i.value;
+  });
 })();
 
 /* ---------- helpers ---------- */
