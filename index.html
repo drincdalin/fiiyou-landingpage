@@ -6,8 +6,8 @@
   <title>fiiyou · the internet belongs to you</title>
   <meta name="description" content="The internet belongs to you. fiiyou is an open source social network where you style your own profile, share music and photos, find friends on a map and chat. No ads, no tracking." />
   <link rel="canonical" href="https://fiiyou.online/" />
-  <meta name="theme-color" content="#0a0a0a" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
   <link rel="icon" href="favicon.ico" sizes="any" />
@@ -48,8 +48,6 @@
     <symbol id="ph-arrow-right" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
     <symbol id="ph-plus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></symbol>
     <symbol id="ph-minus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"/></symbol>
-    <symbol id="ph-list" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></symbol>
-    <symbol id="ph-x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></symbol>
   </svg>
   <a class="skip" href="#main">Skip to content</a>
 
@@ -58,49 +56,50 @@
       <a class="brand" href="#top" aria-label="fiiyou, back to the top">fiiyou</a>
       <nav id="menu" aria-label="Main">
         <a href="#about">About</a>
-        <a href="#features">Features</a>
         <a href="#privacy">Privacy</a>
         <a href="#open-source">Open source</a>
         <a href="#donate">Donate</a>
+        <a href="#faq">Questions</a>
       </nav>
       <div class="nav-end">
         <a class="btn btn-sm" href="https://app.fiiyou.online">Enter the app</a>
-        <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><svg class="ph" aria-hidden="true"><use href="#ph-list"/></svg><span id="menu-label">Menu</span></button>
+        <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span id="menu-label">Menu</span></button>
       </div>
     </div>
   </header>
 
   <main id="main">
     <section id="top" class="hero">
-      <div class="wrap hero-top"><h1 class="mark">fiiyou</h1></div>
-      <div class="wrap hero-row">
-        <p class="lead">the internet belongs to you.</p>
+      <div class="wrap">
+        <h1 class="mark">fiiyou</h1>
+        <p class="tagline">the internet belongs to you.</p>
         <p class="actions">
           <a class="btn" href="https://app.fiiyou.online">Enter the app</a>
           <a class="btn ghost" href="#donate">Donate</a>
         </p>
+        <fieldset class="swatches" id="swatches">
+          <legend>Make this page yours</legend>
+          <label><input type="radio" name="theme" value="mono" checked /><span class="dot" data-t="mono"></span><span class="sr">Mono</span></label>
+          <label><input type="radio" name="theme" value="paper" /><span class="dot" data-t="paper"></span><span class="sr">Paper</span></label>
+          <label><input type="radio" name="theme" value="terminal" /><span class="dot" data-t="terminal"></span><span class="sr">Terminal</span></label>
+          <label><input type="radio" name="theme" value="tokyo" /><span class="dot" data-t="tokyo"></span><span class="sr">Tokyo Night</span></label>
+          <label><input type="radio" name="theme" value="rosepine" /><span class="dot" data-t="rosepine"></span><span class="sr">Rosé Pine</span></label>
+        </fieldset>
       </div>
     </section>
 
     <section id="about" class="sec">
       <div class="wrap grid">
         <h2>A small, open source social network.</h2>
-        <div>
-          <p class="lead">Make your profile look the way you want, find the people around you, and chat with friends.</p>
-          <p class="small muted">fiiyou is desktop first. The best experience is on a computer.</p>
-        </div>
+        <p class="lead">Make your profile look the way you want, find the people around you, and chat with friends.</p>
       </div>
-    </section>
-
-    <section id="features" class="sec">
       <div class="wrap">
-        <h2 class="sr">What you can do here</h2>
-        <ol class="big-list">
-          <li><div class="txt"><h3>Style your profile</h3><p>Make your page look the way you want, from the colours to the layout.</p></div></li>
-          <li><div class="txt"><h3>Share music and photos</h3><p>Post the songs and pictures you care about, to the people you care about.</p></div></li>
-          <li><div class="txt"><h3>Find friends on a map</h3><p>See who is around you and say hi.</p></div></li>
-          <li><div class="txt"><h3>Chat with friends</h3><p>Talk to the people you found, right inside the app.</p></div></li>
-        </ol>
+        <ul class="rows" id="features">
+          <li><h3>Style your profile</h3><p>Make your page look the way you want, from the colours to the layout.</p></li>
+          <li><h3>Share music and photos</h3><p>Post the songs and pictures you care about, to the people you care about.</p></li>
+          <li><h3>Find friends on a map</h3><p>See who is around you and say hi.</p></li>
+          <li><h3>Chat with friends</h3><p>Talk to the people you found, right inside the app.</p></li>
+        </ul>
       </div>
     </section>
 
@@ -109,13 +108,13 @@
         <h2>No ads, no tracking.</h2>
         <div>
           <p class="body-text">Nobody pays to be in front of you, so nobody needs to watch you. You can export or delete all your data whenever you want.</p>
-          <ul class="list">
-            <li><h3>No analytics</h3><p>Nothing here counts you.</p></li>
-            <li><h3>No tracking cookies</h3><p>Nothing follows you around.</p></li>
-            <li><h3>Newest first</h3><p>The feed is not ranked by anyone.</p></li>
-            <li><h3>Your data</h3><p>Export it or delete it, your call.</p></li>
-          </ul>
-          <p class="small muted">One honest thing: chat is not end to end encrypted, so the person running fiiyou could technically read messages. The <a href="https://app.fiiyou.online/privacy.html">privacy policy</a> has the full story.</p>
+          <dl class="facts">
+            <div><dt>No analytics</dt><dd>Nothing here counts you.</dd></div>
+            <div><dt>No tracking cookies</dt><dd>Nothing follows you around.</dd></div>
+            <div><dt>Newest first</dt><dd>The feed is not ranked by anyone.</dd></div>
+            <div><dt>Your data</dt><dd>Export it or delete it, your call.</dd></div>
+          </dl>
+          <p class="note">One honest thing: chat is not end to end encrypted, so the person running fiiyou could technically read messages. The <a href="https://app.fiiyou.online/privacy.html">privacy policy</a> has the full story.</p>
         </div>
       </div>
     </section>
@@ -128,14 +127,13 @@
           <p class="actions"><a class="btn ghost" href="https://github.com/drincdalin/fiiyou.online">See the repo</a></p>
           <div class="people-head">
             <h3>Contributors</h3>
-            <p class="small muted" id="contrib-stats" aria-live="polite"></p>
+            <p id="contrib-stats" aria-live="polite"></p>
           </div>
-          <div class="scroll">
-            <ol class="people" id="people" aria-live="polite" aria-busy="true">
-              <li class="people-msg">Loading contributors...</li>
-            </ol>
-          </div>
-          <p class="small muted">Ranked by commits. This list comes from GitHub when you open the page, so GitHub sees your IP for that request. Nothing else here talks to anyone.</p>
+          <ol class="people" id="people" aria-live="polite" aria-busy="true">
+            <li class="people-msg">Loading contributors...</li>
+          </ol>
+          <button class="more" id="people-more" type="button" aria-expanded="false" hidden></button>
+          <p class="note">Ranked by commits. This list comes from GitHub when you open the page, so GitHub sees your IP for that request. Nothing else here talks to anyone.</p>
         </div>
       </div>
     </section>
@@ -148,10 +146,10 @@
           <p class="body-text">We prefer a bank transfer, because Ko-fi takes a percentage off every donation and a transfer lets the whole amount reach fiiyou. Ko-fi works too if that's easier for you.</p>
           <div id="bank">
             <dl class="bank" id="bank-details" hidden></dl>
-            <p class="small muted" id="bank-soon">Bank details coming soon.</p>
+            <p class="note" id="bank-soon">Bank details coming soon.</p>
           </div>
           <p class="actions"><a class="btn ghost" id="kofi" href="https://ko-fi.com/fiiyou" rel="noopener">Donate on Ko-fi</a></p>
-          <p class="small muted">Donating doesn't unlock anything. The app is the same for everyone.</p>
+          <p class="note">Donating doesn't unlock anything. The app is the same for everyone.</p>
         </div>
       </div>
     </section>
@@ -161,7 +159,7 @@
         <h2>Good to know</h2>
         <div class="faq">
           <details><summary><span>Is it free?</span><svg class="ph i-open" aria-hidden="true"><use href="#ph-plus"/></svg><svg class="ph i-close" aria-hidden="true"><use href="#ph-minus"/></svg></summary><p>Yes. fiiyou has no ads and nothing is locked behind a payment. It runs on donations.</p></details>
-          <details><summary><span>Does it work on my phone?</span><svg class="ph i-open" aria-hidden="true"><use href="#ph-plus"/></svg><svg class="ph i-close" aria-hidden="true"><use href="#ph-minus"/></svg></summary><p>fiiyou is desktop first, so a computer gives the best experience.</p></details>
+          <details><summary><span>Does it work on my phone?</span><svg class="ph i-open" aria-hidden="true"><use href="#ph-plus"/></svg><svg class="ph i-close" aria-hidden="true"><use href="#ph-minus"/></svg></summary><p>Yes. It opens in your phone's browser, and you can add it to your home screen. A computer gives you more room.</p></details>
           <details><summary><span>Can I take my data with me?</span><svg class="ph i-open" aria-hidden="true"><use href="#ph-plus"/></svg><svg class="ph i-close" aria-hidden="true"><use href="#ph-minus"/></svg></summary><p>Yes. You can export it or delete it whenever you want.</p></details>
           <details><summary><span>Are messages private?</span><svg class="ph i-open" aria-hidden="true"><use href="#ph-plus"/></svg><svg class="ph i-close" aria-hidden="true"><use href="#ph-minus"/></svg></summary><p>Chat is not end to end encrypted, so the person running fiiyou could technically read messages. The privacy policy has the details.</p></details>
           <details><summary><span>Can I help build it?</span><svg class="ph i-open" aria-hidden="true"><use href="#ph-plus"/></svg><svg class="ph i-close" aria-hidden="true"><use href="#ph-minus"/></svg></summary><p>Yes. The code is public on GitHub. Send a pull request and you land on the contributors list above.</p></details>
@@ -173,10 +171,10 @@
       <div class="wrap">
         <h2><a class="cta-row" href="https://app.fiiyou.online"><span>Enter the app</span><span class="arr"><svg class="ph" aria-hidden="true"><use href="#ph-arrow-right"/></svg></span></a></h2>
         <ul class="links">
-          <li><a href="https://www.instagram.com/fiiyou.online/" rel="noopener"><span class="name">Instagram</span><span class="muted">@fiiyou.online</span></a></li>
-          <li><a href="https://github.com/drincdalin/fiiyou.online" rel="noopener"><span class="name">GitHub</span><span class="muted">drincdalin/fiiyou.online</span></a></li>
-          <li><a href="https://ko-fi.com/fiiyou" rel="noopener"><span class="name">Ko-fi</span><span class="muted">ko-fi.com/fiiyou</span></a></li>
-          <li><a href="mailto:contact@fiiyou.online"><span class="name">Email</span><span class="muted">contact@fiiyou.online</span></a></li>
+          <li><a href="https://www.instagram.com/fiiyou.online/" rel="noopener"><span class="name">Instagram</span><span class="handle">@fiiyou.online</span></a></li>
+          <li><a href="https://github.com/drincdalin/fiiyou.online" rel="noopener"><span class="name">GitHub</span><span class="handle">drincdalin/fiiyou.online</span></a></li>
+          <li><a href="https://ko-fi.com/fiiyou" rel="noopener"><span class="name">Ko-fi</span><span class="handle">ko-fi.com/fiiyou</span></a></li>
+          <li><a href="mailto:contact@fiiyou.online"><span class="name">Email</span><span class="handle">contact@fiiyou.online</span></a></li>
         </ul>
       </div>
     </section>
@@ -185,10 +183,6 @@
   <footer class="foot">
     <div class="wrap">
       <nav aria-label="Footer">
-        <a href="https://app.fiiyou.online">Enter the app</a>
-        <a href="https://www.instagram.com/fiiyou.online/" rel="noopener">Instagram</a>
-        <a href="https://github.com/drincdalin/fiiyou.online">GitHub</a>
-        <a href="https://ko-fi.com/fiiyou" rel="noopener">Ko-fi</a>
         <a href="https://app.fiiyou.online/privacy.html">Privacy</a>
         <a href="https://app.fiiyou.online/terms.html">Terms</a>
       </nav>

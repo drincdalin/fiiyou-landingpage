@@ -1,31 +1,30 @@
 // fiiyou landing page. No frameworks, no trackers, no build step.
-// Jobs: the mobile menu, the sample profile, donation details (with a copy button) and the contributors list from GitHub.
+// Jobs: the mobile menu, the page colour swatches, donation details (with a copy button) and the contributors list from GitHub.
 
 /* ---------- 1. mobile menu ---------- */
 (function menu() {
   const btn = document.getElementById('menu-btn');
   const nav = document.getElementById('menu');
   const label = document.getElementById('menu-label');
-  const icon = btn && btn.querySelector('use');
-  if (!btn || !nav || !label || !icon) return;
-  const set = (open) => { nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); label.textContent = open ? 'Close' : 'Menu'; icon.setAttribute('href', open ? '#ph-x' : '#ph-list'); };
+  if (!btn || !nav || !label) return;
+  const set = (open) => { nav.classList.toggle('open', open); document.documentElement.classList.toggle('menu-open', open); btn.setAttribute('aria-expanded', String(open)); label.textContent = open ? 'Close' : 'Menu'; };
   btn.addEventListener('click', () => set(!nav.classList.contains('open')));
   nav.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
   window.matchMedia('(min-width: 880px)').addEventListener('change', () => set(false));
 })();
 
-/* ---------- 1b. the sample profile: colours and layout ---------- */
-(function playground() {
-  const card = document.getElementById('profile');
-  const form = document.querySelector('.tweak');
-  if (!card || !form) return;
-  form.addEventListener('submit', (e) => e.preventDefault());
-  form.addEventListener('change', (e) => {
+/* ---------- 1b. page colours: the app lets you restyle your profile, so the page lets you restyle itself ---------- */
+(function swatches() {
+  const box = document.getElementById('swatches');
+  if (!box) return;
+  const bg = { mono: '#000000', paper: '#f1ece0', terminal: '#000000', tokyo: '#1a1b26', rosepine: '#191724' };   // browser bar colour, same as --bg in styles.css
+  const meta = document.querySelector('meta[name="theme-color"]');
+  box.addEventListener('change', (e) => {
     const i = e.target;
-    if (!i || !i.checked) return;
-    if (i.name === 'theme') document.documentElement.dataset.theme = i.value;
-    if (i.name === 'layout') card.dataset.layout = i.value;
+    if (!i || i.name !== 'theme' || !i.checked || !(i.value in bg)) return;
+    if (i.value === 'mono') delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = i.value;
+    if (meta) meta.setAttribute('content', bg[i.value]);
   });
 })();
 
@@ -154,14 +153,16 @@ function showMessage(list, message) {
     const nf = new Intl.NumberFormat('en');
     if (stats) stats.textContent = `${nf.format(total)} commit${total === 1 ? '' : 's'} from ${nf.format(people.length)} contributor${people.length === 1 ? '' : 's'}`;
 
+    const SHOW = 6;   // a phone should not have to scroll through a long list to reach the next section
     const rows = people.map((p, i) => {
       const li = el('li');
+      if (i >= SHOW) li.hidden = true;
       li.append(el('span', 'rank', String(i + 1)));
 
       const img = el('img', 'avatar');
       img.alt = '';
-      img.width = 46; img.height = 46; img.loading = 'lazy'; img.decoding = 'async';
-      if (p.avatar) img.src = `${p.avatar}${p.avatar.includes('?') ? '&' : '?'}s=92`;
+      img.width = 36; img.height = 36; img.loading = 'lazy'; img.decoding = 'async';
+      if (p.avatar) img.src = `${p.avatar}${p.avatar.includes('?') ? '&' : '?'}s=72`;
       li.append(img);
 
       const who = el('div', 'who');
@@ -173,17 +174,16 @@ function showMessage(list, message) {
       return li;
     });
 
-    // an open seat at the bottom of the list
-    const join = el('li', 'join');
-    join.append(el('span', 'rank', String(people.length + 1)));
-    const a = el('a', null, 'Your name could be here. Send a pull request.');
-    a.href = REPO_URL;
-    a.rel = 'noopener';
-    join.append(a);
-    rows.push(join);
-
     list.replaceChildren(...rows);
     list.setAttribute('aria-busy', 'false');
+
+    const more = document.getElementById('people-more');
+    if (more && people.length > SHOW) {
+      let open = false;
+      const paint = () => { rows.forEach((li, i) => { if (i >= SHOW) li.hidden = !open; }); more.textContent = open ? 'Show fewer' : `Show all ${nf.format(people.length)}`; more.setAttribute('aria-expanded', String(open)); };
+      more.addEventListener('click', () => { open = !open; paint(); });
+      paint(); more.hidden = false;
+    }
   } catch {
     showMessage(list, 'Could not load the list right now.');
   }
